@@ -35,7 +35,7 @@ def make_recommendation():
     if request.method == 'POST':
         landmark = request.get_json()#json 데이터를 받는다.
         if 'name' in landmark.keys():
-            result = model.test(landmark['name'])
+            result = model.return_recommendations(landmark['name']).tolist()
             return jsonify({"recommended_landmarks": result})
         else:
             return render_template('recommender.html',label="wrong data type")
