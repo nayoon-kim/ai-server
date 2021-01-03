@@ -9,18 +9,6 @@ app = Flask(__name__)
 def index():
     return render_template('index.html',title='AI-SERVER')
 
-@app.route('/<pagename>')
-def hello(pagename):
-    return pagename
-
-@app.route('/animal')
-def animal():
-    return render_template('animal.html')
-
-@app.route('/dog')
-def dog():
-    return render_template('dog.html')
-
 @app.route('/userLogin', methods=['POST'])
 def userLogin():
     user = request.get_json()#json 데이터를 받아온다.
